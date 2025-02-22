@@ -1,7 +1,8 @@
 .wrapper {
   min-height: 900px;
   height: 100%;
-  background-size: contain;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-image: url(https://images.pexels.com/photos/162292/seagull-bird-animal-nature-162292.jpeg?cs=srgb&dl=pexels-pixabay-162292.jpg&fm=jpg);
   display: flex;
   justify-content: flex-end;

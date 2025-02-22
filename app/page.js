@@ -9,6 +9,7 @@ import {
   Text,
   TextInput,
   Title,
+  Image
 } from '@mantine/core';
 import classes from './page.module.css';
 import { signInWithGoogle } from '../auth/auth';
