@@ -1,6 +1,7 @@
 .wrapper {
   min-height: 900px;
-  background-size: cover;
+  height: 100%;
+  background-size: contain;
   background-image: url(https://images.pexels.com/photos/162292/seagull-bird-animal-nature-162292.jpeg?cs=srgb&dl=pexels-pixabay-162292.jpg&fm=jpg);
   display: flex;
   justify-content: flex-end;
@@ -8,8 +9,12 @@
 }
 
 .form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border-right: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-7));
   min-height: 900px;
+  height: 100vh;
   max-width: 600px;
   min-width: 550px;
   padding-top: 80px;

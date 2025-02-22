@@ -18,26 +18,28 @@ export default function Home() {
   return (
     <div className={classes.wrapper}>
       <Paper className={classes.form} radius={0} p={30}>
-        <Title order={2} className={classes.title} ta="center" mt="md">
-          Welcome to RGUHack2025
-        </Title>
+        <Paper className={classes.formcontent}>
+          <Title order={2} className={classes.title} ta="center" mt="md">
+            Welcome to RGUHack2025
+          </Title>
 
-        <Text size="md" mb={50} mt="sm" ta="center">Welcome to our project.</Text>
+          <Text size="md" mb={50} mt="sm" ta="center">Welcome to our project.</Text>
 
-        <GoogleButton onClick={() => signInWithGoogle()} >SignIn with Google</GoogleButton>
+          <GoogleButton onClick={() => signInWithGoogle()} >SignIn with Google</GoogleButton>
 
-        <Divider style={{margin: 20}} />
+          <Divider style={{margin: 20}} />
 
-        <TextInput label="Email address" placeholder="YourEmail@gmail.com" size="md" />
-        <PasswordInput label="Password" placeholder="Your Password" mt="md" size="md" />
-        <Checkbox label="Keep me logged in" mt="xl" size="md" />
-        <Button fullWidth mt="xl" size="md">
-          Login
-        </Button>
+          <TextInput label="Email address" placeholder="YourEmail@gmail.com" size="md" />
+          <PasswordInput label="Password" placeholder="Your Password" mt="md" size="md" />
+          <Checkbox label="Keep me logged in" mt="xl" size="md" />
+          <Button fullWidth mt="xl" size="md">
+            Login
+          </Button>
 
-        <Text ta="center" mt="md">
-          Don&apos;t have an account?{' '}
-        </Text>
+          <Text ta="center" mt="md">
+            Don&apos;t have an account?{' '}
+          </Text>
+        </Paper>
       </Paper>
     </div>
   );
