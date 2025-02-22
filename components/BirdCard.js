@@ -5,7 +5,8 @@ import { Card } from '@mantine/core';
 import BirdCardDetail from './BirdCardDetail';
 
 const BirdCard = ({ image, title, fact, date }) => {
-  const [showOverlay, setShowOverlay] = useState(false)
+  const [showOverlay, setShowOverlay] = useState(false);
+
   return (
     <Card className={classes.birdcard} onClick={() => setShowOverlay(true)}>
       <div>
@@ -15,12 +16,15 @@ const BirdCard = ({ image, title, fact, date }) => {
         <p className={classes.carddate}>{date}</p>
       </div>
 
-      {
-        showOverlay ?
-          <BirdCardDetail />
-        :
-          <></>
-      }
+      {showOverlay == true && (
+        <BirdCardDetail
+          title={title}
+          fact={fact}
+          date={date}
+          image={image}
+          callback={(state) => setShowOverlay(state)}  // Pass setShowOverlay callback to hide the overlay
+        />
+      )}
     </Card>
   );
 };
