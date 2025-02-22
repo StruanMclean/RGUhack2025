@@ -39,8 +39,6 @@ export default function useAuth() {
   }, []);
 
   return {
-    authUser,
-    loading,
     signInWithEmailAndPassword,
     createUserWithEmailAndPassword,
     signOut,
