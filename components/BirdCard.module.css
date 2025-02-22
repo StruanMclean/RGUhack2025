@@ -1,0 +1,32 @@
+/* Card.css */
+.birdcard {
+  width: fit-content;
+  padding: 10px;
+  height: fit-content;
+  background-color: #f5f4f4;
+  border-color: #e8e8e8;
+  border-width: 1px;
+  border-style: solid;
+  margin: 10px;
+}
+
+.cardimage {
+  width: 200px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.cardtitle {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.cardfact {
+  text-align: center;
+}
+
+.carddate {
+  text-align: center;
+}
+
