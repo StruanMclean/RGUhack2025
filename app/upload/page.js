@@ -3,7 +3,8 @@
 import { useState } from 'react';
 import { Checkbox, Text, UnstyledButton } from '@mantine/core';
 import classes from './page.module.css';
-import Navbar from '@/components/Navbar';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 export default function Upload() {
   const [value, onChange] = useState(true);
@@ -31,8 +32,9 @@ export default function Upload() {
         </Text>
       </div>
     </UnstyledButton>
-
+    <Footer/>
     <Navbar />
+    
     </div>
   );
 }
