@@ -2,6 +2,7 @@
 import { auth } from './firebase';
 import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword as _createUserWithEmailAndPassword, signInWithEmailAndPassword as _signInWithEmailAndPassword, signOut as _signOut, onAuthStateChanged, deleteUser, reauthenticateWithCredential, EmailAuthProvider } from "firebase/auth";
 import { useEffect, useState } from "react";
+import toast from 'react-hot-toast';
 
 export default function useAuth() {
   const [authUser, setAuthUser] = useState(null);
@@ -16,22 +17,43 @@ export default function useAuth() {
     setLoading(true);
     const provider = new GoogleAuthProvider();
     try {
+      setLoading(true);
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       console.log(user);
     } catch (error) {
-      alert(error);
+      setLoading(false);
+      console.error("Error deleting account:", error);
+      toast.error("Error deleting account", {
+        position: "top-center",
+      });
     }
   };
 
-  const signInWithEmailAndPassword = (email, password) => {
-    setLoading(true);
-    _signInWithEmailAndPassword(auth, email, password);
+  const signInWithEmailAndPassword = async (email, password) => {
+    try {
+      setLoading(true);
+      await _signInWithEmailAndPassword(auth, email, password);      
+    } catch (error) {
+      setLoading(false);
+      console.error("Error deleting account:", error);
+      toast.error("Error logging in invalid email or password. Please create an account or try again.", {
+        position: "top-center",
+      });
+    }
   }
 
-  const createUserWithEmailAndPassword = (email, password) => {
-    setLoading(true);
-    _createUserWithEmailAndPassword(auth, email, password);
+  const createUserWithEmailAndPassword = async (email, password) => {
+    try {
+      setLoading(true);
+      await _createUserWithEmailAndPassword(auth, email, password);      
+    } catch (error) {
+      setLoading(false);
+      console.error("Error deleting account:", error);
+      toast.error("There was an error try again", {
+        position: "top-center",
+      });
+    }
   }
 
   const signOut = () =>
@@ -40,22 +62,33 @@ export default function useAuth() {
   const deleteAccount = async (password) => {
     const user = auth.currentUser;
 
+    setLoading(true);
+
     if (user) {
       try {
         const credential = EmailAuthProvider.credential(user.email, password); 
         await reauthenticateWithCredential(user, credential);
 
         await deleteUser(user);
-        alert("Account deleted successfully");
+        toast.error("Account deleted successfully", {
+          position: "top-center",
+          icon: "error"
+        });
 
         await signOut();
         Router.replace("/");
       } catch (error) {
+        setLoading(false);
         console.error("Error deleting account:", error);
-        alert("Error deleting account: " + error.message);
+        toast.error("Error deleting account", {
+          position: "top-center",
+        });
       }
     } else {
-      alert("No user is currently logged in.");
+      setLoading(false);
+      toast.error("No user is currently logged in.", {
+        position: "top-center",
+      });
     }
   };
 

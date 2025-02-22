@@ -15,6 +15,7 @@ import classes from './page.module.css';
 import useAuth from '../auth/auth';
 import { GoogleButton } from '../components/GoogleButton';
 import { useState } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 export default function Home() {
   const auth = useAuth()
@@ -26,6 +27,7 @@ export default function Home() {
   
   return (
     <div className={classes.wrapper}>
+      <Toaster />
       <Paper className={classes.form} radius={0} p={30}>
         <Paper className={classes.formcontent}>
           <Title order={2} className={classes.title} ta="center" mt="md">

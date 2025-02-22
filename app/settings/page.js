@@ -52,12 +52,12 @@ export default function Settings() {
               size="md" 
               style={{marginBottom: 15}}
             />
-            <Button onClick={() => auth.deleteAccount(password)}>Delete Account</Button>
+            <Button loading={auth.loading} onClick={() => auth.deleteAccount(password)}>Delete Account</Button>
             
             <Divider style={{marginTop: 15, marginBottom: 15}} />
 
             <Title size="xl" style={{marginBottom: 15}}>Sign Out Your Account</Title>
-            <Button onClick={() => auth.signOut()}>Sign Out</Button>
+            <Button loading={auth.loading} onClick={() => auth.signOut()}>Sign Out</Button>
           </Accordion.Panel>
         </Accordion.Item>
       </Accordion>

@@ -16,12 +16,11 @@
   border-right: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-7));
   min-height: 900px;
   height: 100vh;
-  max-width: 600px;
-  min-width: 550px;
+  min-width: 50vw;
   padding-top: 80px;
 
   @media (max-width: 768px) {
-    max-width: 100%;
+    max-width: 100vw;
   }
 }
 

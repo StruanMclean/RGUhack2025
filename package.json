@@ -12,10 +12,13 @@
     "@mantine/core": "^7.17.0",
     "@mantine/hooks": "^7.17.0",
     "firebase": "^11.3.1",
+    "mapbox-gl": "^3.10.0",
     "my-app": "file:",
     "next": "15.1.7",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-hot-toast": "^2.5.2",
+    "react-map-gl": "^8.0.1"
   },
   "devDependencies": {
     "@types/react": "19.0.10",
