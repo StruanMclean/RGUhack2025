@@ -11,11 +11,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <MantineProvider>
         <body>
-          {children}
+          <MantineProvider>
+            {children}
+          </MantineProvider>
         </body>
-      </MantineProvider>
     </html>
   );
 }
