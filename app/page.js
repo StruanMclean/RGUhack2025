@@ -12,10 +12,12 @@ import {
   Image
 } from '@mantine/core';
 import classes from './page.module.css';
-import { signInWithGoogle } from '../auth/auth';
+import useAuth, { signInWithGoogle } from '../auth/auth';
 import { GoogleButton } from '@/components/GoogleButton';
 
 export default function Home() {
+  const auth = useAuth()
+  
   return (
     <div className={classes.wrapper}>
       <Paper className={classes.form} radius={0} p={30}>
@@ -26,7 +28,7 @@ export default function Home() {
 
           <Text size="md" mb={50} mt="sm" ta="center">Welcome to our project.</Text>
 
-          <GoogleButton onClick={() => signInWithGoogle()} >SignIn with Google</GoogleButton>
+          <GoogleButton onClick={() => auth.signInWithGoogle()} >SignIn with Google</GoogleButton>
 
           <Divider style={{margin: 20}} />
 
