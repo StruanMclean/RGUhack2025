@@ -18,23 +18,21 @@ import BirdCard from '@/components/BirdCard';
     return (
       <div  className={classes.wrapper}>
         <Paper className={classes.form} radius={0} p={30}>
-          <Title order={2} className={classes.title} ta="center" mt="md" mb={50}>
+          <h1 order={2} className={classes.title} ta="center" mt="md" mb={50}>
             Dashboard
-          </Title>
+          </h1>
 
           <Center>
-          <h3>Recents</h3>
+          <h2>Recents</h2>
           </Center>
 
           <Center>
             <Flex>
-              <BirdCard image={"components\wood-flight-bird-326900.jpg"} title={"Test"}></BirdCard>
+              <BirdCard image={"wood-flight-bird-326900.jpg"} title={"Bird 1"} fact={"Fact 1"} date={"22/02/2025"}></BirdCard>
+              <BirdCard image={"wood-flight-bird-326900.jpg"} title={"Bird 2"} fact={"Fact 2"} date={"22/02/2025"}></BirdCard>
+              <BirdCard image={"wood-flight-bird-326900.jpg"} title={"Bird 3"} fact={"Fact 3"} date={"22/02/2025"}></BirdCard>
             </Flex>
           </Center>
-
-          <Text ta="center" mt="md">
-            Don&apos;t have an account?{' '}
-          </Text>
         </Paper>
       </div>
     );
