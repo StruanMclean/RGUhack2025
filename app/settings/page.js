@@ -3,6 +3,7 @@ import { Accordion, Container, Title, Paper, Center, Button, Divider, PasswordIn
 import classes from './page.module.css';
 import useAuth from '../../auth/auth';
 import { useState } from 'react';
+import Navbar from '../../components/Navbar';
 
 let placeholder = ""
 
@@ -60,6 +61,8 @@ export default function Settings() {
           </Accordion.Panel>
         </Accordion.Item>
       </Accordion>
+      
+      <Navbar />
     </Container>
   );
 }
