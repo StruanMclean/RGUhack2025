@@ -7,19 +7,19 @@ const Navbar = () => {
                 <div style={styles.container}>
                     <ul style={styles.navList}>
                         <li style={styles.navItem}>
-                            <a href="#Gallery" style={styles.navLink}>Gallery</a>
+                            <a href="/gallery" style={styles.navLink}>Gallery</a>
                         </li>
                         <li style={styles.navItem}>
-                            <a href="#Dashboard" style={styles.navLink}>Dashboard</a>
+                            <a href="/dashboard" style={styles.navLink}>Dashboard</a>
                         </li>
                         <li style={styles.navItemCircle}>
-                            <a href="#Upload" style={styles.navLink}>+</a>
+                            <a href="/upload" style={styles.navLink}>+</a>
                         </li>
                         <li style={styles.navItem}>
-                            <a href="#Settings" style={styles.navLink}>Settings</a>
+                            <a href="/settings" style={styles.navLink}>Settings</a>
                         </li>
                         <li style={styles.navItem}>
-                            <a href="#Settings" style={styles.navLink}>Settings</a>
+                            <a href="/settings" style={styles.navLink}>Settings</a>
                         </li>
                     </ul>
                 </div>

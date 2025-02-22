@@ -13,6 +13,7 @@ import {
   } from '@mantine/core';
   import classes from './page.module.css';
 import BirdCard from '../../components/BirdCard';
+import Navbar from '../../components/Navbar';
   
   export default function Dashboard() {
     return (
@@ -47,6 +48,8 @@ import BirdCard from '../../components/BirdCard';
 
 
         </Paper>
+
+        <Navbar />
       </div>
     );
   }
