@@ -12,7 +12,7 @@ import {
     Center,
   } from '@mantine/core';
   import classes from './page.module.css';
-import BirdCard from '@/components/BirdCard';
+import BirdCard from '../../components/BirdCard';
   
   export default function Dashboard() {
     return (

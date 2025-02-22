@@ -1,0 +1,13 @@
+.wrapper {
+    min-height: 100vh;
+}
+  
+.title {
+    margin-bottom: 5cm;
+}
+  
+.item {
+    border-radius: var(--mantine-radius-md);
+    margin-bottom: var(--mantine-spacing-lg);
+    border: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+}

@@ -12,8 +12,8 @@ import {
   Image
 } from '@mantine/core';
 import classes from './page.module.css';
-import useAuth, { signInWithGoogle } from '../auth/auth';
-import { GoogleButton } from '@/components/GoogleButton';
+import useAuth from '../auth/auth';
+import { GoogleButton } from '../components/GoogleButton';
 import { useState } from 'react';
 
 export default function Home() {
@@ -57,7 +57,7 @@ export default function Home() {
           {
             login ?
               <>
-                <Button fullWidth mt="xl" size="md" onClick={() => auth.signInWithEmailAndPassword(email, password)}>
+                <Button loading={auth.loading} fullWidth mt="xl" size="md" onClick={() => auth.signInWithEmailAndPassword(email, password)}>
                   Login
                 </Button>
 
@@ -67,7 +67,7 @@ export default function Home() {
               </>
             :
               <>
-                <Button fullWidth mt="xl" size="md" onClick={() => auth.createUserWithEmailAndPassword(email, password)}>
+                <Button loading={auth.loading} fullWidth mt="xl" size="md" onClick={() => auth.createUserWithEmailAndPassword(email, password)}>
                   Create Account
                 </Button>
 
