@@ -21,13 +21,15 @@ export default function Home() {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+
+  const [login, setLogin] = useState(true)
   
   return (
     <div className={classes.wrapper}>
       <Paper className={classes.form} radius={0} p={30}>
         <Paper className={classes.formcontent}>
           <Title order={2} className={classes.title} ta="center" mt="md">
-            Welcome to RGUHack2025
+            Welcome to Phoenix
           </Title>
 
           <Text size="md" mb={50} mt="sm" ta="center">Welcome to our project.</Text>
@@ -51,13 +53,29 @@ export default function Home() {
             mt="md" 
             size="md" 
           />
-          <Button fullWidth mt="xl" size="md" onClick={() => auth.signInWithEmailAndPassword(email, password)}>
-            Login
-          </Button>
 
-          <Text ta="center" mt="md">
-            Don&apos;t have an account?{' '}
-          </Text>
+          {
+            login ?
+              <>
+                <Button fullWidth mt="xl" size="md" onClick={() => auth.signInWithEmailAndPassword(email, password)}>
+                  Login
+                </Button>
+
+                <Text onClick={() => setLogin(false)} ta="center" mt="md">
+                  Don&apos;t have an account?{' '}
+                </Text>
+              </>
+            :
+              <>
+                <Button fullWidth mt="xl" size="md" onClick={() => auth.createUserWithEmailAndPassword(email, password)}>
+                  Create Account
+                </Button>
+
+                <Text clickable="true" onClick={() => setLogin(true)} ta="center" mt="md">
+                  Have an account?{' '}
+                </Text>              
+              </>
+          }
         </Paper>
       </Paper>
     </div>
