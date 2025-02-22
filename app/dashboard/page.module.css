@@ -5,5 +5,13 @@
   background-size: contain;
   display: flex;
   justify-content: flex-end;
-  
+  flex-wrap: wrap;
+}
+
+.title{
+  text-align: center;
+}
+
+.subtitle{
+  margin-top: 100px;
 }
