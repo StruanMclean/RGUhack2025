@@ -23,7 +23,7 @@ import BirdCard from '@/components/BirdCard';
           </h1>
 
           <Center>
-          <h2>Recents</h2>
+          <h2 className = {classes.subtitle}>Recents</h2>
           </Center>
 
           <Center>
@@ -33,6 +33,19 @@ import BirdCard from '@/components/BirdCard';
               <BirdCard image={"wood-flight-bird-326900.jpg"} title={"Bird 3"} fact={"Fact 3"} date={"22/02/2025"}></BirdCard>
             </Flex>
           </Center>
+
+          <Center>
+            <h2 className = {classes.subtitle}>World Map</h2>
+          </Center>
+
+          <Center>
+            <Flex>
+              
+            </Flex>
+          </Center>
+
+
+
         </Paper>
       </div>
     );
