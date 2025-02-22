@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 
 export default function useAuth() {
   const [authUser, setAuthUser] = useState()
-  const [loading, setLoading] = useState()
+  const [loading, setLoading] = useState(true)
 
   const clear = () => {
     setAuthUser(null);

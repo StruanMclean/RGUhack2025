@@ -14,9 +14,13 @@ import {
 import classes from './page.module.css';
 import useAuth, { signInWithGoogle } from '../auth/auth';
 import { GoogleButton } from '@/components/GoogleButton';
+import { useState } from 'react';
 
 export default function Home() {
   const auth = useAuth()
+
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
   
   return (
     <div className={classes.wrapper}>
@@ -32,10 +36,22 @@ export default function Home() {
 
           <Divider style={{margin: 20}} />
 
-          <TextInput label="Email address" placeholder="YourEmail@gmail.com" size="md" />
-          <PasswordInput label="Password" placeholder="Your Password" mt="md" size="md" />
-          <Checkbox label="Keep me logged in" mt="xl" size="md" />
-          <Button fullWidth mt="xl" size="md">
+          <TextInput 
+            value={email}
+            onChange={(event) => setEmail(event.currentTarget.value)}
+            label="Email address" 
+            placeholder="YourEmail@gmail.com" 
+            size="md" 
+          />
+          <PasswordInput 
+            value={password}
+            onChange={(event) => setPassword(event.currentTarget.value)}
+            label="Password" 
+            placeholder="Your Password"
+            mt="md" 
+            size="md" 
+          />
+          <Button fullWidth mt="xl" size="md" onClick={() => auth.signInWithEmailAndPassword(email, password)}>
             Login
           </Button>
 
