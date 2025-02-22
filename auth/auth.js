@@ -1,6 +1,7 @@
 'use client'
 import { auth } from './firebase';
 import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
+import { useEffect } from "react"
 
 export default function useAuth() {
   const clear = () => {
