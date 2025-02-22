@@ -1,3 +1,4 @@
+'use client'
 import {
     Anchor,
     Button,
@@ -14,8 +15,13 @@ import {
   import classes from './page.module.css';
 import BirdCard from '../../components/BirdCard';
 import Navbar from '../../components/Navbar';
+
+import Map from 'react-map-gl/mapbox';
+import 'mapbox-gl/dist/mapbox-gl.css';
   
   export default function Dashboard() {
+    const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+
     return (
       <div  className={classes.wrapper}>
         <Paper className={classes.form} radius={0} p={30}>
@@ -39,13 +45,14 @@ import Navbar from '../../components/Navbar';
             <h2 className = {classes.subtitle}>World Map</h2>
           </Center>
 
-          <Center>
-            <Flex>
-              
-            </Flex>
-          </Center>
-
-
+          <Map
+            mapboxAccessToken={mapboxToken}
+            mapStyle="mapbox://styles/mapbox/streets-v12"
+            style={{width: 600, height: 400}}
+            initialViewState={{ latitude: 57.1499, longitude: -2.0938, zoom: 10 }}
+            maxZoom={20}
+            minZoom={3}
+          ></Map>
 
         </Paper>
 
