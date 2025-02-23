@@ -21,13 +21,14 @@ const BirdCard = ({ image, title, fact, date }) => {
         <p className={classes.carddate}>{date}</p>
       </div>
 
-      {/* Pass the isHidden state to control visibility */}
+      {/* Pass both the isHidden state and setIsHidden function */}
       <BirdCardDetail
         title={title}
         fact={fact}
         date={date}
         image={image}
-        isHidden={isHidden}  // Control visibility
+        isHidden={isHidden}  // Pass the state to control visibility
+        setIsHidden={setIsHidden} // Function to toggle visibility
       />
     </Card>
   );

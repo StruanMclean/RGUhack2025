@@ -23,7 +23,7 @@ const Navbar = () => {
                                 <a href="/settings" style={styles.navLink}>Settings</a>
                             </li>
                             <li style={styles.navItem}>
-                                <a href="/settings" style={styles.navLink}>Settings</a>
+                                <a href="/map" style={styles.navLink}>Map</a>
                             </li>
                         </ul>
                     </div>

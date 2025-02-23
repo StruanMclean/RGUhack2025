@@ -1,8 +1,8 @@
 import React from 'react';
 import classes from './BirdCardDetail.module.css';  // Optional, for styling the card
-import { Card } from '@mantine/core';
+import { Card, Center } from '@mantine/core';
 
-const BirdCardDetail = ({ image, title, fact, date, isHidden }) => {
+const BirdCardDetail = ({ image, title, fact, date, isHidden, setIsHidden }) => {
   return (
     <div className={`${classes.birdcardcontainer} ${isHidden ? '' : classes.visible}`}>
       <Card className={classes.birdcarddetail}>
@@ -13,7 +13,9 @@ const BirdCardDetail = ({ image, title, fact, date, isHidden }) => {
           <p className={classes.carddate}>{date}</p>
           
           {/* Button to close the overlay */}
-          <button onClick={() => isHidden(false)}>Close</button>
+          <Center>
+          <button className={classes.button}  onClick={() => setIsHidden(true)}>Close</button>
+          </Center>
         </div>
       </Card>
     </div>
