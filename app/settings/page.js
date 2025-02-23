@@ -15,46 +15,49 @@ export default function Settings() {
   const [password, setPassword] = useState("")
 
   return (
-    <Container size="sm" className={classes.wrapper}>
-      <Title ta="center" className={classes.title} style={{marginTop: 100}}>
-        Settings
-      </Title>
-      
-      <Accordion variant="separated">
-        <Accordion.Item className={classes.item} value="reset-password">
-          <Accordion.Control><h4>User Details</h4></Accordion.Control>
-          <Accordion.Panel>
-            <Stack className={classes.userdetails}>
-              <p>Email: test@gmail.com</p>
-              <p>Password: 1234</p>
-            </Stack>
-          </Accordion.Panel>
-        </Accordion.Item>
+    <>
+      <Container size="sm" className={classes.wrapper}>
+        <Title ta="center" className={classes.title} style={{marginTop: 100}}>
+          Settings
+        </Title>
+        
+        <Accordion variant="separated">
+          <Accordion.Item className={classes.item} value="reset-password">
+            <Accordion.Control><h4>User Details</h4></Accordion.Control>
+            <Accordion.Panel>
+              <Stack className={classes.userdetails}>
+                <p>Email: test@gmail.com</p>
+                <p>Password: 1234</p>
+              </Stack>
+            </Accordion.Panel>
+          </Accordion.Item>
 
-        <Accordion.Item className={classes.item} value="payment">
-          <Accordion.Control><h4>The Danger Zone</h4></Accordion.Control>
-          <Accordion.Panel>
-            <Title size="xl" style={{marginBottom: 15}}>Delete Account</Title>
-            <PasswordInput 
-              value={password}
-              onChange={(event) => setPassword(event.currentTarget.value)}
-              label="Enter your password to delete account" 
-              placeholder="Your Password"
-              mt="md" 
-              size="md" 
-              style={{marginBottom: 15}}
-            />
-            <Button className={classes.deleteButton} loading={auth.loading} onClick={() => auth.deleteAccount(password)}>Delete Account</Button>
-            
-            <Divider style={{marginTop: 15, marginBottom: 15}} />
+          <Accordion.Item className={classes.item} value="payment">
+            <Accordion.Control><h4>The Danger Zone</h4></Accordion.Control>
+            <Accordion.Panel>
+              <Title size="xl" style={{marginBottom: 15}}>Delete Account</Title>
+              <PasswordInput 
+                value={password}
+                onChange={(event) => setPassword(event.currentTarget.value)}
+                label="Enter your password to delete account" 
+                placeholder="Your Password"
+                mt="md" 
+                size="md" 
+                style={{marginBottom: 15}}
+              />
+              <Button className={classes.deleteButton} loading={auth.loading} onClick={() => auth.deleteAccount(password)}>Delete Account</Button>
+              
+              <Divider style={{marginTop: 15, marginBottom: 15}} />
 
-              <Title size="xl" style={{marginBottom: 15, marginRight:20}}>Sign Out Your Account</Title>
-              <Button loading={auth.loading} onClick={() => auth.signOut()}>Sign Out</Button>
-          </Accordion.Panel>
-        </Accordion.Item>
-      </Accordion>
-      <Navbar />
+                <Title size="xl" style={{marginBottom: 15, marginRight:20}}>Sign Out Your Account</Title>
+                <Button loading={auth.loading} onClick={() => auth.signOut()}>Sign Out</Button>
+            </Accordion.Panel>
+          </Accordion.Item>
+        </Accordion>
+        <Navbar />
+      </Container>
       <Footer/>
-    </Container>
+    </>
+
   );
 }
