@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
         <head>
-          <meta name="viewport" content="width=600px" />
+          <meta name="viewport" content="min-width=700px" />
         </head>
         <body>
           <MantineProvider>
