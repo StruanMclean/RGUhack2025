@@ -37,7 +37,7 @@ export default function Home() {
 
           <Text size="md" mb={50} mt="sm" ta="center">Welcome to our project.</Text>
 
-          <GoogleButton onClick={() => auth.signInWithGoogle()} >SignIn with Google</GoogleButton>
+          <GoogleButton onClick={() => auth.signInWithGoogle()} >Sign-In with Google</GoogleButton>
 
           <Divider style={{margin: 20}} />
 
