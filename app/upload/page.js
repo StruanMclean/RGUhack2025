@@ -23,7 +23,7 @@ export default function Upload() {
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           try {
-            const docRef = await addDoc(collection(firestore, "Uploads"), {
+            const docRef = await addDoc(collection(firestore, auth.currentUser.uid), {
               fileName: fileName,
               latitude: position.coords.latitude,
               longitude: position.coords.longitude
@@ -42,7 +42,6 @@ export default function Upload() {
         }
       );
     } else {
-      alert("Error: Geolocation not available");
       toast.error("Could not access your location to add to the map", {
         position: "top-center",
       });
