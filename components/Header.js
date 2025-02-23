@@ -1,7 +1,7 @@
 import { Center } from '@mantine/core';
 import React from 'react';
 
-const Header = () => {
+const header = () => {
     return (
         <div style={styles.header}>
             <img src='Logo.png' alt='Logo' style={styles.logo} />
@@ -25,4 +25,4 @@ const styles = {
     }
 };
 
-export default Header;
+export default header;

@@ -7,7 +7,7 @@ import { Dropzone, MIME_TYPES } from '@mantine/dropzone';
 import classes from './page.module.css';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import Header from '../../components/Header';
+import header from '../../components/header';
 import toast from 'react-hot-toast';
 import { Toaster } from 'react-hot-toast'
 import { auth, firestore } from '../../auth/firebase';
