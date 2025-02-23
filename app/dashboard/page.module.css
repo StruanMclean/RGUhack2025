@@ -16,9 +16,6 @@
   max-height: 100vh;
 }
 
-::marker{
-  display: none;
-}
 .list{
   list-style: none;
 }
