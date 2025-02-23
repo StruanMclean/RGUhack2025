@@ -1,5 +1,5 @@
 'use client'
-import { Accordion, Container, Title, Paper, Center, Button, Divider, PasswordInput } from '@mantine/core';
+import { Accordion, Container, Title, Paper, Center, Button, Divider, PasswordInput, Flex, Stack } from '@mantine/core';
 import classes from './page.module.css';
 import useAuth from '../../auth/auth';
 import { useState } from 'react';
@@ -20,27 +20,17 @@ export default function Settings() {
 
       <Accordion variant="separated">
         <Accordion.Item className={classes.item} value="reset-password">
-          <Accordion.Control>How can I reset my password?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="another-account">
-          <Accordion.Control>Can I create more that one account?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="newsletter">
-          <Accordion.Control>How can I subscribe to monthly newsletter?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
-        </Accordion.Item>
-
-        <Accordion.Item className={classes.item} value="credit-card">
-          <Accordion.Control>Do you store credit card information securely?</Accordion.Control>
-          <Accordion.Panel>{placeholder}</Accordion.Panel>
+          <Accordion.Control><h4>User Details</h4></Accordion.Control>
+          <Accordion.Panel>
+            <Stack className={classes.userdetails}>
+              <p>Email: test@gmail.com</p>
+              <p>Password: 1234</p>
+            </Stack>
+          </Accordion.Panel>
         </Accordion.Item>
 
         <Accordion.Item className={classes.item} value="payment">
-          <Accordion.Control>The Danger Zone</Accordion.Control>
+          <Accordion.Control><h4>The Danger Zone</h4></Accordion.Control>
           <Accordion.Panel>
             <Title size="xl" style={{marginBottom: 15}}>Delete Account</Title>
             <PasswordInput 
@@ -52,12 +42,12 @@ export default function Settings() {
               size="md" 
               style={{marginBottom: 15}}
             />
-            <Button loading={auth.loading} onClick={() => auth.deleteAccount(password)}>Delete Account</Button>
+            <Button className={classes.deleteButton} loading={auth.loading} onClick={() => auth.deleteAccount(password)}>Delete Account</Button>
             
             <Divider style={{marginTop: 15, marginBottom: 15}} />
 
-            <Title size="xl" style={{marginBottom: 15}}>Sign Out Your Account</Title>
-            <Button loading={auth.loading} onClick={() => auth.signOut()}>Sign Out</Button>
+              <Title size="xl" style={{marginBottom: 15, marginRight:20}}>Sign Out Your Account</Title>
+              <Button loading={auth.loading} onClick={() => auth.signOut()}>Sign Out</Button>
           </Accordion.Panel>
         </Accordion.Item>
       </Accordion>
