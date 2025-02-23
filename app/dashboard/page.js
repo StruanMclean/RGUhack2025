@@ -105,7 +105,6 @@ export default function Dashboard() {
       <Toaster />
       <Modal opened={opened} onClose={close} title="Prediction">
         <Title>{prediction.class}</Title>
-
         {
           images.map((item) => (
           <Image
@@ -197,7 +196,7 @@ export default function Dashboard() {
         <Map
             mapboxAccessToken={mapboxToken}
             mapStyle="mapbox://styles/mapbox/streets-v12"
-            style={{width: "150vw", minHeight: "70vh",Height:"80vh", borderTopLeftRadius: 25, borderBottomLeftRadius: 25}}
+            style={{width: "150vw", minHeight: "100vh",Height:"80vh", borderTopLeftRadius: 25, borderBottomLeftRadius: 25}}
             initialViewState={{ latitude: 57.1499, longitude: -2.0938, zoom: 10 }}
             maxZoom={20}
             minZoom={3}
