@@ -7,7 +7,8 @@ import {
   Title,
   Button,
   Skeleton,
-  Modal
+  Modal,
+  Image
   } from '@mantine/core';
   import classes from './page.module.css';
 import BirdCard from '../../components/BirdCard';
@@ -41,6 +42,8 @@ export default function Dashboard() {
   const [geojson, setgeojson] = useState([]);
   const [userID, setUserID] = useState(null)
   const [loading, setLoading] = useState(true);
+  const [prediction, setPrediction] = useState(false);
+  const [images, setImages] = useState([]);
 
   const handleDelete = async (id) => {
     const itemRef = doc(firestore, userID, id)
@@ -88,11 +91,29 @@ export default function Dashboard() {
     })
   }, []);
 
+  useEffect(() => {
+    if (prediction != false) {
+      open()
+      setImages(prediction.images)
+    }
+  }, [prediction])
+
+  console.log(images)
+
   return (
     <div  className={classes.wrapper}>
       <Toaster />
       <Modal opened={opened} onClose={close} title="Prediction">
+        <Title>{prediction.class}</Title>
 
+        {
+          images.map((item) => (
+          <Image
+            key={item.id}
+            src={item.src.landscape}
+          />
+          ))
+        }
       </Modal>
 
       <Grid>
@@ -120,13 +141,21 @@ export default function Dashboard() {
                             long={item.longitude}
                             lat={item.latitude}
                             callback={() => handleDelete(item.id)}
-                            open={() => {
+                            open={async () => {
+                              setPrediction(false)
                               toast.loading("Predicting Image", {
+                                id: "loadingPrediction",
                                 position: "top-center",
                               });
 
-                              open()
-                              predict(item.url)
+                              const animal = await predict(item.url)
+                              setPrediction(animal)
+
+                              toast.remove("loadingPrediction")
+                              
+                              toast.success("Done!", {
+                                position: "top-center",
+                              });
                             }}
                           />
                         </li>    
