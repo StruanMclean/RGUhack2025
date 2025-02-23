@@ -69,7 +69,7 @@ export default function Upload() {
   return (
     <>
       <Toaster />
-
+    <div className={classes.Uploading}>
       <Center>
         <UploadDropzone
           endpoint="imageUploader"
@@ -86,7 +86,7 @@ export default function Upload() {
           }}
         />
       </Center>
-        
+      
       <Container maw={500}>
         <TextInput 
           value={fileName}
@@ -100,6 +100,7 @@ export default function Upload() {
           Submit
         </Button>
       </Container>
+      </div>
       <Header />
       <Navbar />
       <Footer />
