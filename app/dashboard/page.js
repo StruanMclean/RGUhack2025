@@ -20,6 +20,7 @@ const geojson = {
       geometry: {
         type: 'Point',
         coordinates: [-2.29895, 57.1523021]
+        
       },
       properties: {title: '26 westdyke avenue'}
     }
