@@ -12,9 +12,9 @@ const Footer = () => {
                             <h2>Stay Connected with us</h2>
                             <ul style={styles.LinkedinProfiles}>
                                 <li style={styles.profile}><a href="https://www.linkedin.com/in/joshua-newton" style={styles.navLink}>JN</a></li>
-                                <li style={styles.profile}><a href="https://www.linkedin.com/in/joshua-newton" style={styles.navLink}>JN</a></li>
-                                <li style={styles.profile}><a href="https://www.linkedin.com/in/joshua-newton" style={styles.navLink}>JN</a></li>
-                                <li style={styles.profile}><a href="https://www.linkedin.com/in/joshua-newton" style={styles.navLink}>JN</a></li>
+                                <li style={styles.profile}><a href="https://www.linkedin.com/in/joshua-newton" style={styles.navLink}>SM</a></li>
+                                <li style={styles.profile}><a href="https://www.linkedin.com/in/joshua-newton" style={styles.navLink}>JW</a></li>
+                                <li style={styles.profile}><a href="https://www.linkedin.com/in/joshua-newton" style={styles.navLink}>DT</a></li>
                             </ul>
                         </div>
 
@@ -90,7 +90,7 @@ const styles = {
         width: '50px',
         height: '50px',
         borderRadius: '50%',
-        backgroundColor: 'blue',
+        backgroundColor: 'lightblue',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
