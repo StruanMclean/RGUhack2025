@@ -16,7 +16,7 @@ const Navbar = () => {
                             </li>
                             <a href="/upload">
                                 <li style={styles.navItemCircle}>
-                                    <span style={styles.navLink}>+</span>
+                                    <span>+</span>
                                 </li>                                
                             </a>
                             <li style={styles.navItem}>
@@ -63,7 +63,10 @@ const styles = {
         justifyContent: 'center', 
         alignItems: 'center', // Centers content inside the circle
         outline: '10px solid white',
-        backgroundColor: 'lightblue',
+        backgroundColor: '#238ce7',
+        color: 'white',
+        textDecoration: 'none',
+        fontSize: '19px',
     },
     navLink: {
         color: 'black',
