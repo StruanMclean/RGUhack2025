@@ -13,6 +13,8 @@ import {
   import classes from './page.module.css';
 import BirdCard from '../../components/BirdCard';
 import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+
 
 
 import Map, {Source, Layer} from 'react-map-gl/mapbox';
@@ -214,6 +216,7 @@ export default function Dashboard() {
       </Grid>
 
       <Navbar />
+      <Footer />
     </div>
   );
 }

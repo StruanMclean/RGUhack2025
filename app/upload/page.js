@@ -108,6 +108,9 @@ export default function Upload() {
       </div>
       <Header />
       <Navbar />
+      <div style={{ height: '60vh' }}>
+        
+      </div>
       <Footer />
     </>
   );
