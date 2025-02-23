@@ -26,40 +26,46 @@ export default function Upload() {
 
   const submit = () => {
 
-    if ("geolocation" in navigator) {
-      setLoading(true)
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          try {
-            const docRef = await addDoc(collection(firestore, auth.currentUser.uid), {
-              url: fileURL,
-              fileName: fileName,
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude
-            });
-            toast.success("Upload successful:", {
+    if (fileURL != "") {
+      if ("geolocation" in navigator) {
+        setLoading(true)
+        navigator.geolocation.getCurrentPosition(
+          async (position) => {
+            try {
+              const docRef = await addDoc(collection(firestore, auth.currentUser.uid), {
+                url: fileURL,
+                fileName: fileName,
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude
+              });
+              toast.success("Upload successful:", {
+                position: "top-center",
+              });
+              setLoading(false)
+              window.location.replace("/dashboard")
+            } catch (error) {
+              setLoading(false)
+              toast.error("Error uploading data:", {
+                position: "top-center",
+              });
+              alert("Error during upload");
+            }
+          },
+          (error) => {
+            setLoading(false)
+            console.error("Geolocation error:", error);
+            toast.error("Could not access your location", {
               position: "top-center",
             });
-            setLoading(false)
-            window.location.replace("/dashboard")
-          } catch (error) {
-            setLoading(false)
-            toast.error("Error uploading data:", {
-              position: "top-center",
-            });
-            alert("Error during upload");
           }
-        },
-        (error) => {
-          setLoading(false)
-          console.error("Geolocation error:", error);
-          toast.error("Could not access your location", {
-            position: "top-center",
-          });
-        }
-      );
+        );
+      } else {
+        toast.error("Could not access your location to add to the map", {
+          position: "top-center",
+        });
+      }
     } else {
-      toast.error("Could not access your location to add to the map", {
+      toast.error("Press upload to upload your image", {
         position: "top-center",
       });
     }
