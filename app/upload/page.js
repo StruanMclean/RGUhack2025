@@ -1,39 +1,61 @@
 'use client';
 
-import { useState } from 'react';
-import { Checkbox, Text, UnstyledButton } from '@mantine/core';
+import { useRef } from 'react';
+import { IconCloudUpload, IconDownload, IconX } from '@tabler/icons-react';
+import { Button, Group, Text, useMantineTheme } from '@mantine/core';
+import { Dropzone, MIME_TYPES } from '@mantine/dropzone';
 import classes from './page.module.css';
 import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 export default function Upload() {
-  const [value, onChange] = useState(true);
+  const theme = useMantineTheme();
+  const openRef = useRef(null);
+
 
   return (
-    <div>
-    
-    <UnstyledButton onClick={() => onChange(!value)} className={classes.button}>
-      <Checkbox
-        checked={value}
-        onChange={() => {}}
-        tabIndex={-1}
-        size="md"
-        mr="xl"
-        styles={{ input: { cursor: 'pointer' } }}
-        aria-hidden
-      />
+    <>
+      <div className={classes.wrapper}>
+        <Dropzone
+          openRef={openRef}
+          onDrop={() => {}}
+          className={classes.dropzone}
+          radius="md"
+          accept={[MIME_TYPES.pdf]}
+          maxSize={30 * 1024 ** 2}
+        >
+          <div style={{ pointerEvents: 'none' }}>
+            <Group justify="center">
+              <Dropzone.Accept>
+                <IconDownload size={50} color={theme.colors.blue[6]} stroke={1.5} />
+              </Dropzone.Accept>
+              <Dropzone.Reject>
+                <IconX size={50} color={theme.colors.red[6]} stroke={1.5} />
+              </Dropzone.Reject>
+              <Dropzone.Idle>
+                <IconCloudUpload size={50} stroke={1.5} />
+              </Dropzone.Idle>
+            </Group>
 
-      <div  className={classes.abc}>
-        <Text fw={500} mb={7} lh={1}>
-          @mantine/core
-        </Text>
-        <Text fz="sm" c="dimmed">
-          Core components library: inputs, buttons, overlays, etc.
-        </Text>
+            <Text ta="center" fw={700} fz="lg" mt="xl">
+              <Dropzone.Accept>Drop files here</Dropzone.Accept>
+              <Dropzone.Reject>Pdf file less than 30mb</Dropzone.Reject>
+              <Dropzone.Idle>Upload resume</Dropzone.Idle>
+            </Text>
+            <Text ta="center" fz="sm" mt="xs" c="dimmed">
+              Drag&apos;n&apos;drop files here to upload. We can accept only <i>.pdf</i> files that
+              are less than 30mb in size.
+            </Text>
+          </div>
+        </Dropzone>
+
+        <Button className={classes.control} size="md" radius="xl" onClick={() => openRef.current?.()}>
+          Select files
+        </Button>
       </div>
-    </UnstyledButton>
-    <Footer/>
-    <Navbar />
-    
-    </div>
+
+      <Navbar />
+      <Footer />
+    </>
   );
 }

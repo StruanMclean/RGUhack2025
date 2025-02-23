@@ -1,12 +1,25 @@
-.button {
+.wrapper {
     display: flex;
-    width: 100%;
-    border: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-8));
-    border-radius: var(--mantine-radius-sm);
-    padding: var(--mantine-spacing-lg);
-    background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-8));
-}
-.abc {
-    min-height: 1000px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 30px;
+    height: 90vh;
+    width: 100vw;
+  }
+  
+.dropzone {
+    border-width: 1px;
+    padding-bottom: 50px;
 }
   
+.icon {
+    color: light-dark(var(--mantine-color-gray-4), var(--mantine-color-dark-3));
+}
+  
+.control {
+    position: absolute;
+    width: 250px;
+    left: calc(50% - 125px);
+    bottom: -20px;
+}
