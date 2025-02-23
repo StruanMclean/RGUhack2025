@@ -11,8 +11,6 @@ import {
 import BirdCard from '../../components/BirdCard';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import Header from '../../components/header';
-
 
 
 import Map, {Source, Layer} from 'react-map-gl/mapbox';
@@ -81,7 +79,6 @@ export default function Dashboard() {
 
   return (
     <div  className={classes.wrapper}>
-      <Header/>
       <Grid>
         <Grid.Col span={6}>
           <Paper className={classes.form} radius={0} p={30}>
@@ -129,7 +126,6 @@ export default function Dashboard() {
           </Map>
         </Grid.Col>
       </Grid>
-      <Navbar/>
       <Footer/>
     </div>
   );

@@ -16,7 +16,7 @@ import useAuth from '../auth/auth';
 import { GoogleButton } from '../components/GoogleButton';
 import { useState } from 'react';
 import { Toaster } from 'react-hot-toast';
-import Header from '../components/header';
+import Header from '../components/Header';
 
 export default function Home() {
   const auth = useAuth()
