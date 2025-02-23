@@ -105,25 +105,29 @@ export default function Dashboard() {
   return (
     <div  className={classes.wrapper}>
       <Toaster />
-      <Modal opened={opened} onClose={close} title="Prediction" w="90vw" h="90vh">
+      <Modal opened={opened} onClose={close} title="Prediction" fullScreen>
         <Title>{prediction.class}</Title>
-
-        <Flex>
+        
+        <Flex mt={25} wrap="wrap">
+          <Flex>
             <Image
               key={1}
+              mih="90vh"
               src={images.length > 0 ? images[0].src.landscape : ""}
             />
+          </Flex>
 
-            <Flex>
+          <Flex style={{maxWidth: "100vw", flexWrap: "wrap"}}>
             {
               images.map((item) => (
               <Image
                 key={item.id}
                 src={item.src.landscape}
+                maw={"20%"}
               />
               ))
             }
-            </Flex>
+          </Flex>
         </Flex>
       </Modal>
 
