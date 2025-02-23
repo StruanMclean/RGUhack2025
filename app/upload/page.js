@@ -12,7 +12,7 @@ import toast from 'react-hot-toast';
 import { Toaster } from 'react-hot-toast'
 import { auth, firestore } from '../../auth/firebase';
 import { collection, addDoc } from "firebase/firestore"; 
-import { UploadButton } from '../../components/uploadthing';
+import { UploadButton, UploadDropzone } from '../../components/uploadthing';
 import { getIdToken } from "firebase/auth"
 
 export default function Upload() {
@@ -71,7 +71,7 @@ export default function Upload() {
       <Toaster />
 
       <Center>
-        <UploadButton
+        <UploadDropzone
           endpoint="imageUploader"
           onClientUploadComplete={(res) => {
             setFileURL(res[0].ufsUrl)

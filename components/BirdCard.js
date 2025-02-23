@@ -13,6 +13,8 @@ const BirdCard = ({ image, title, fact, date, callback }) => {
         <Image
           src={image}
           maw={350}
+          miw={350}
+          mih={250}
           mah={250}
         />
       </Card.Section>

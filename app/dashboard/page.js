@@ -82,7 +82,6 @@ export default function Dashboard() {
       <Grid>
         <Grid.Col span={6}>
           <Paper className={classes.form} radius={0} p={30}>
-
             <div style={{ overflowY: "auto", maxHeight: "100vh", padding: "1rem" }}>
               <Flex justify="space-evenly" wrap="wrap" maw="50vw">
                 {items.map((item) => (

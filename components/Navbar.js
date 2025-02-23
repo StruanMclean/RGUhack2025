@@ -9,9 +9,6 @@ const Navbar = () => {
                     <div style={styles.container}>
                         <ul style={styles.navList}>
                             <li style={styles.navItem}>
-                                <a href="/gallery" style={styles.navLink}>Gallery</a>
-                            </li>
-                            <li style={styles.navItem}>
                                 <a href="/dashboard" style={styles.navLink}>Dashboard</a>
                             </li>
                             <a href="/upload">
@@ -21,9 +18,6 @@ const Navbar = () => {
                             </a>
                             <li style={styles.navItem}>
                                 <a href="/settings" style={styles.navLink}>Settings</a>
-                            </li>
-                            <li style={styles.navItem}>
-                                <a href="/map" style={styles.navLink}>Map</a>
                             </li>
                         </ul>
                     </div>
@@ -47,7 +41,7 @@ const styles = {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center', // Aligns all items (including the circle) vertically
-        width: 500
+        width: 350
     },
     navItem: {
         textAlign: 'center',
