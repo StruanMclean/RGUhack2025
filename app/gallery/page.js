@@ -15,7 +15,7 @@ import {
 import BirdCard from '../../components/BirdCard';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import Header from '../../components/header';
+import Header from '../../components/Header';
 
   
   export default function Gallery() {
