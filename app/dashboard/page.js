@@ -6,6 +6,7 @@ import {
   Center,
   Title,
   Button,
+  Skeleton
   } from '@mantine/core';
   import classes from './page.module.css';
 import BirdCard from '../../components/BirdCard';
@@ -33,6 +34,7 @@ export default function Dashboard() {
   const [items, setItems] = useState([]);
   const [geojson, setgeojson] = useState([]);
   const [userID, setUserID] = useState(null)
+  const [loading, setLoading] = useState(true);
 
   const handleDelete = async (id) => {
     const itemRef = doc(firestore, userID, id)
@@ -60,6 +62,8 @@ export default function Dashboard() {
         }))
       );
 
+      setLoading(false)
+
       console.log(querySnapshot);
     } catch (error) {
       console.error("Error fetching items:", error);
@@ -67,6 +71,7 @@ export default function Dashboard() {
   };
 
   useEffect(() => {
+    setLoading(true)
     auth.onAuthStateChanged((user) => {
       if (user) {
         setUserID(user.uid)
@@ -84,17 +89,54 @@ export default function Dashboard() {
           <Paper className={classes.form} radius={0} p={30}>
             <div style={{ overflowY: "auto", maxHeight: "100vh", padding: "1rem" }}>
               <Flex justify="space-evenly" wrap="wrap" maw="50vw">
-                {items.map((item) => (
-                  <li key={item.id} className="border-t-2 p-2">
-                    <BirdCard
-                      image={item.url}
-                      title={item.fileName}
-                      fact={"Fact 3"}
-                      date={"22/02/2025"}
-                      callback={() => handleDelete(item.id)}
-                    />
-                  </li>
-                ))}
+                {
+                  loading ? 
+                    <>
+                    <Skeleton w={350} h={400}></Skeleton>
+                    <Skeleton w={350} h={400}></Skeleton>
+                    <Skeleton w={350} h={400} mt={25}></Skeleton>
+                    <Skeleton w={350} h={400} mt={25}></Skeleton>
+                    </>
+                  :
+                    items.length > 0 ?
+                      items.map((item) => (
+                        <li key={item.id} className="border-t-2 p-2">
+                          <BirdCard
+                            image={item.url}
+                            title={item.fileName}
+                            fact={"Fact 3"}
+                            date={"22/02/2025"}
+                            callback={() => handleDelete(item.id)}
+                          />
+                        </li>    
+                      ))         
+                    :
+                      <Paper mt={"35vh"}>
+                        <Title>Click + Bellow To Add Data!</Title>
+
+                        <Center mt={50}>
+                          <a href="/upload">
+                            <li style={{
+                              backgroundColor: 'white',
+                              borderRadius: '50%',
+                              width: '70px',
+                              height: '70px',
+                              display: 'flex', 
+                              justifyContent: 'center', 
+                              alignItems: 'center',
+                              outline: '10px solid white',
+                              backgroundColor: 'Black',
+                              color: 'white',
+                              textDecoration: 'none',
+                              fontSize: '19px',
+                              marginLeft: -10,
+                            }}>
+                              <span>+</span>
+                            </li>                              
+                          </a>
+                        </Center>
+                      </Paper>                     
+                }
               </Flex>
             </div>
 

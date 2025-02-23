@@ -5,7 +5,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { Modal, Button, Flex } from '@mantine/core';
 
 const BirdCard = ({ image, title, fact, date, callback }) => {
-  const [isHidden, setIsHidden] = useState(true);  // Initially hidden
+  const [isHidden, setIsHidden] = useState(true);
 
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder maw={350}>
@@ -23,9 +23,6 @@ const BirdCard = ({ image, title, fact, date, callback }) => {
         <Text fw={500}>{title}</Text>
         <Badge color="pink">Data Bellow</Badge>
       </Group>
-
-      <Text size="sm" c="dimmed">
-      </Text>
 
       <Flex>
         <Button color="blue" fullWidth mt="md" m={5} radius="md">
