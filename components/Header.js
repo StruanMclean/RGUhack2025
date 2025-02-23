@@ -3,22 +3,26 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <Center>
-            <div style={styles.Header}>
-                <img src='Logo.png' alt='Logo'></img>
-            </div>            
-        </Center>
+        <div style={styles.header}>
+            <img src='Logo.png' alt='Logo' style={styles.logo} />
+        </div>            
     );
 };
 
 const styles = {
-    Header: { // Changed from Navbar to navbar
-        padding: '10px 0',
-        textAlign: 'center',
+    header: {
         position: 'fixed', 
-        bottom: '25px', 
+        top: 0, 
+        left: 0, 
         width: '100%',
+        padding: '10px',
     },
-}
+    logo: {
+        position: 'absolute',
+        top: '10px',
+        left: '10px',
+        height: '150px', // Adjust size as needed
+    }
+};
 
 export default Header;
