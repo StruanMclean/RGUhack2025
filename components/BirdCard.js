@@ -7,10 +7,13 @@ import { useDisclosure } from '@mantine/hooks';
 import { Modal, Button } from '@mantine/core';
 
 const BirdCard = ({ image, title, fact, date }) => {
-  const [opened, { open, close }] = useDisclosure(false);
+  const [isHidden, setIsHidden] = useState(true);  // Initially hidden
+
+  // Toggle visibility
+  const toggleOverlay = () => setIsHidden(!isHidden);
 
   return (
-    <Card className={classes.birdcard} onClick={open}>
+    <Card className={classes.birdcard} onClick={toggleOverlay}>
       <div>
         <img src={image} alt={title} className={classes.cardimage} />
         <h4 className={classes.cardtitle}>{title}</h4>
@@ -18,9 +21,14 @@ const BirdCard = ({ image, title, fact, date }) => {
         <p className={classes.carddate}>{date}</p>
       </div>
 
-      <Modal opened={opened} onClose={close} title="Authentication">
-        <BirdCardDetail />
-      </Modal>
+      {/* Pass the isHidden state to control visibility */}
+      <BirdCardDetail
+        title={title}
+        fact={fact}
+        date={date}
+        image={image}
+        isHidden={isHidden}  // Control visibility
+      />
     </Card>
   );
 };

@@ -1,5 +1,7 @@
 /* Card.css */
-.birdcard {
+
+/* Card container */
+.birdcarddetail {
   width: fit-content;
   padding: 10px;
   height: fit-content;
@@ -8,13 +10,41 @@
   border-width: 1px;
   border-style: solid;
   margin: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.05), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
-  position: absolute;
+  /* Ensure it's visible when active */
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.birdcardcontainer {
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  min-width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  
+  /* Hidden by default with transition effect */
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, visibility 0s 0.3s; /* Delay visibility change */
+}
+
+/* Make the container visible when showOverlay is true */
+.birdcardcontainer.visible {
+  visibility: visible;
+  opacity: 1;
 }
 
 .cardimage {
-  width: 500px;
-  height: 300px;
+  width: 700px;
+  height: 400px;
   object-fit: cover;
   border-radius: 3px;
 }
@@ -31,4 +61,3 @@
 .carddate {
   text-align: center;
 }
-
