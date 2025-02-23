@@ -14,10 +14,15 @@ import {
   import classes from './page.module.css';
 import BirdCard from '../../components/BirdCard';
 import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import Header from '../../components/header';
+
   
   export default function Gallery() {
     return (
+      
       <div  className={classes.wrapper}>
+        <Header/>
         <Paper className={classes.form} radius={0} p={30}>
           <h1 order={2} className={classes.title} ta="center" mt="md" mb={50}>
             Gallery
@@ -38,6 +43,7 @@ import Navbar from '../../components/Navbar';
         </Paper>
 
         <Navbar />
+        <Footer/>
       </div>
     );
   }

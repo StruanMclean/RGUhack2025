@@ -7,6 +7,7 @@ import { Dropzone, MIME_TYPES } from '@mantine/dropzone';
 import classes from './page.module.css';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import Header from '../../components/header';
 import toast from 'react-hot-toast';
 import { Toaster } from 'react-hot-toast'
 import { auth, firestore } from '../../auth/firebase';
@@ -24,6 +25,7 @@ export default function Upload() {
   const [loading, setLoading] = useState(false)
 
   const submit = () => {
+
     if ("geolocation" in navigator) {
       setLoading(true)
       navigator.geolocation.getCurrentPosition(
@@ -62,27 +64,63 @@ export default function Upload() {
 
   return (
     <>
+    <Header/>
       <Toaster />
       <div className={classes.wrapper}>
-        <Center mt={100}>
-          <Title>
-            Upload Photo
-          </Title>              
-        </Center>
+        <Dropzone
+          openRef={openRef}
+          onDrop={() => {}}
+          className={classes.dropzone}
+          radius="md"
+          accept={[MIME_TYPES.pdf]}
+          maxSize={30 * 1024 ** 2}
+        >
+          <Center mt={100}>
+            <Title>
+              Upload Bird
+            </Title>              
+          </Center>
 
-        <UploadButton
-          endpoint="imageUploader"
-          onClientUploadComplete={(res) => {
-            // Do something with the response
-            setFileURL(res[0].ufsUrl)
-            console.log("Files: ", res);
-            alert("Upload Completed");
-          }}
-          onUploadError={(error) => {
-            // Do something with the error.
-            alert(`ERROR! ${error.message}`);
-          }}
-        />
+          <div style={{
+            marginTop: "3cm",
+            width: 500,
+            padding: 50,
+            borderRadius: 20,
+            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+            boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
+            backdropFilter: "blur(5px)",
+            webkitBackdropFilter: "blur(5px)",
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginTop: 50,
+          }}>
+            <Group justify="center">
+              <Dropzone.Accept>
+                <IconDownload size={50} color={theme.colors.blue[6]} stroke={1.5} />
+              </Dropzone.Accept>
+              <Dropzone.Reject>
+                <IconX size={50} color={theme.colors.red[6]} stroke={1.5} />
+              </Dropzone.Reject>
+              <Dropzone.Idle>
+                <IconCloudUpload size={50} stroke={1.5} />
+              </Dropzone.Idle>
+            </Group>
+
+            <Text ta="center" fw={700} fz="lg" mt="xl">
+              <Dropzone.Accept>Drop files here</Dropzone.Accept>
+              <Dropzone.Reject>Pdf file less than 30mb</Dropzone.Reject>
+              <Dropzone.Idle>Upload resume</Dropzone.Idle>
+            </Text>
+            <Text ta="center" fz="sm" mt="xs">
+              Drag&apos;n&apos;drop files here to upload. We can accept only <i>.pdf</i> files that
+              are less than 30mb in size.
+            </Text>
+
+            <Button className={classes.control} size="md" radius="xl" w={400} mt={50} onClick={() => openRef.current?.()}>
+              Select files
+            </Button>
+          </div>
+        </Dropzone>
       </div>
 
       <Container maw={500}>

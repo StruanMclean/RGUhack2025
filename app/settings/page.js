@@ -4,6 +4,8 @@ import classes from './page.module.css';
 import useAuth from '../../auth/auth';
 import { useState } from 'react';
 import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import Header from '../../components/header';
 
 let placeholder = ""
 
@@ -13,11 +15,13 @@ export default function Settings() {
   const [password, setPassword] = useState("")
 
   return (
+   
     <Container size="sm" className={classes.wrapper}>
+      <Header/>
       <Title ta="center" className={classes.title} style={{marginTop: 100}}>
         Settings
       </Title>
-
+      
       <Accordion variant="separated">
         <Accordion.Item className={classes.item} value="reset-password">
           <Accordion.Control><h4>User Details</h4></Accordion.Control>
@@ -51,8 +55,8 @@ export default function Settings() {
           </Accordion.Panel>
         </Accordion.Item>
       </Accordion>
-      
       <Navbar />
+      <Footer/>
     </Container>
   );
 }
