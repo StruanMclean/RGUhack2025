@@ -11,7 +11,9 @@
   "dependencies": {
     "@firebase/firestore": "^4.7.8",
     "@mantine/core": "^7.17.0",
+    "@mantine/dropzone": "^7.17.0",
     "@mantine/hooks": "^7.17.0",
+    "@tabler/icons-react": "^3.30.0",
     "firebase": "^11.3.1",
     "geojson": "^0.5.0",
     "mapbox-gl": "^3.10.0",
