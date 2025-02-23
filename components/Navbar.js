@@ -16,7 +16,7 @@ const Navbar = () => {
                             </li>
                             <a href="/upload">
                                 <li style={styles.navItemCircle}>
-                                    <a style={styles.navLink}>+</a>
+                                    <span style={styles.navLink}>+</span>
                                 </li>                                
                             </a>
                             <li style={styles.navItem}>
