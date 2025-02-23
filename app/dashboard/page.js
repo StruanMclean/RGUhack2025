@@ -11,7 +11,7 @@ import {
 import BirdCard from '../../components/BirdCard';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import header from '../../components/header';
+import Header from '../../components/header';
 
 
 
@@ -81,7 +81,7 @@ export default function Dashboard() {
 
   return (
     <div  className={classes.wrapper}>
-      <header/>
+      <Header/>
       <Grid>
         <Grid.Col span={6}>
           <Paper className={classes.form} radius={0} p={30}>

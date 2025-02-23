@@ -7,7 +7,7 @@ import { Dropzone, MIME_TYPES } from '@mantine/dropzone';
 import classes from './page.module.css';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import header from '../../components/header';
+import Header from '../../components/header';
 import toast from 'react-hot-toast';
 import { Toaster } from 'react-hot-toast'
 import { auth, firestore } from '../../auth/firebase';
@@ -60,7 +60,7 @@ export default function Upload() {
 
   return (
     <>
-    <header/>
+    <Header/>
       <Toaster />
       <div className={classes.wrapper}>
         <Dropzone

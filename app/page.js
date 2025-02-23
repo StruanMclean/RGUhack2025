@@ -16,6 +16,7 @@ import useAuth from '../auth/auth';
 import { GoogleButton } from '../components/GoogleButton';
 import { useState } from 'react';
 import { Toaster } from 'react-hot-toast';
+import Header from '../components/header';
 
 export default function Home() {
   const auth = useAuth()
@@ -27,6 +28,7 @@ export default function Home() {
   
   return (
     <div className={classes.wrapper}>
+      <Header/>
       <Toaster />
       <Paper className={classes.form} radius={0} p={30}>
         <Paper className={classes.formcontent}>
@@ -77,9 +79,11 @@ export default function Home() {
                   Have an account?{' '}
                 </Text>              
               </>
+
           }
         </Paper>
       </Paper>
+      
     </div>
   );
 }
