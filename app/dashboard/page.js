@@ -33,7 +33,6 @@ export default function Dashboard() {
   const [userID, setUserID] = useState(null)
 
   const handleDelete = async (id) => {
-    alert(id)
     const itemRef = doc(firestore, userID, id)
     try {
       await deleteDoc(itemRef)

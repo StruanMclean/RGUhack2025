@@ -18,8 +18,11 @@ export default function Upload() {
 
   const [fileName, setFileName] = useState("")
 
+  const [loading, setLoading] = useState(false)
+
   const submit = () => {
     if ("geolocation" in navigator) {
+      setLoading(true)
       navigator.geolocation.getCurrentPosition(
         async (position) => {
           try {
@@ -29,12 +32,16 @@ export default function Upload() {
               longitude: position.coords.longitude
             });
             console.log("Upload successful:", docRef);
+            setLoading(false)
+            window.location.replace("/dashboard")
           } catch (error) {
+            setLoading(false)
             console.error("Error uploading data:", error);
             alert("Error during upload");
           }
         },
         (error) => {
+          setLoading(false)
           console.error("Geolocation error:", error);
           toast.error("Could not access your location", {
             position: "top-center",
@@ -118,7 +125,7 @@ export default function Upload() {
           size="md" 
         />
 
-        <Button size="md" fullWidth mt={25} onClick={() => submit()}>
+        <Button loading={loading} size="md" fullWidth mt={25} onClick={() => submit()}>
           Submit
         </Button>
       </Container>
