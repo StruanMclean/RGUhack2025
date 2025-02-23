@@ -6,12 +6,12 @@ import {
   Center,
   Title,
   Button,
-  Skeleton
+  Skeleton,
+  Modal
   } from '@mantine/core';
   import classes from './page.module.css';
 import BirdCard from '../../components/BirdCard';
 import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 
 
 import Map, {Source, Layer} from 'react-map-gl/mapbox';
@@ -19,6 +19,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { auth, firestore } from '../../auth/firebase';
 import { useEffect, useState } from 'react';
 import { getDocs, collection, doc, deleteDoc } from "firebase/firestore"
+import { useDisclosure } from '@mantine/hooks';
+import toast, { Toaster } from 'react-hot-toast';
 
 const layerStyle = {
   id: 'point',
@@ -31,6 +33,9 @@ const layerStyle = {
   
 export default function Dashboard() {
   const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+
+  const [opened, { open, close }] = useDisclosure(false);
+
   const [items, setItems] = useState([]);
   const [geojson, setgeojson] = useState([]);
   const [userID, setUserID] = useState(null)
@@ -84,6 +89,11 @@ export default function Dashboard() {
 
   return (
     <div  className={classes.wrapper}>
+      <Toaster />
+      <Modal opened={opened} onClose={close} title="Prediction">
+
+      </Modal>
+
       <Grid>
         <Grid.Col span={6}>
           <Paper className={classes.form} radius={0} p={30}>
@@ -109,6 +119,13 @@ export default function Dashboard() {
                             long={item.longitude}
                             lat={item.latitude}
                             callback={() => handleDelete(item.id)}
+                            open={() => {
+                              toast.loading("Predicting Image", {
+                                position: "top-center",
+                              });
+
+                              open()
+                            }}
                           />
                         </li>    
                       ))         
@@ -149,7 +166,7 @@ export default function Dashboard() {
           <Map
             mapboxAccessToken={mapboxToken}
             mapStyle="mapbox://styles/mapbox/streets-v12"
-            style={{width: "50vw", height: "100vh"}}
+            style={{width: "50vw", height: "100vh", borderTopLeftRadius: 25, borderBottomLeftRadius: 25}}
             initialViewState={{ latitude: 57.1499, longitude: -2.0938, zoom: 10 }}
             maxZoom={20}
             minZoom={3}

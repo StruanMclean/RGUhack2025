@@ -3,10 +3,8 @@ import { useState } from 'react';
 import { Card, Group, Text, Badge, Image } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Modal, Button, Flex } from '@mantine/core';
-import predict from '../lib/predict';
 
-const BirdCard = ({ image, title, fact, date, long, lat, callback }) => {
-  const [isHidden, setIsHidden] = useState(true);
+const BirdCard = ({ image, title, fact, date, long, lat, callback, open }) => {
 
   return (
     <Card shadow="sm" padding="lg" radius="md" withBorder maw={350}>
@@ -29,7 +27,7 @@ const BirdCard = ({ image, title, fact, date, long, lat, callback }) => {
       </Group>
 
       <Flex>
-        <Button onClick={() => predict(image)} color="blue" fullWidth mt="md" m={5} radius="md">
+        <Button onClick={() => open()} color="blue" fullWidth mt="md" m={5} radius="md">
           Detect
         </Button>
 
