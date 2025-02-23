@@ -86,7 +86,7 @@ export default function Upload() {
           }}
         />
       </Center>
-
+        
       <Container maw={500}>
         <TextInput 
           value={fileName}
@@ -100,7 +100,7 @@ export default function Upload() {
           Submit
         </Button>
       </Container>
-
+      <Header />
       <Navbar />
       <Footer />
     </>
