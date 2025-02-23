@@ -100,7 +100,7 @@ export default function Dashboard() {
                   :
                     items.length > 0 ?
                       items.map((item) => (
-                        <li key={item.id} className="border-t-2 p-2">
+                        <li key={item.id} className="border-t-2 p-2" style={{ listStyle: "none", gap: 10}}>
                           <BirdCard
                             image={item.url}
                             title={item.fileName}
