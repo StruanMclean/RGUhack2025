@@ -1,6 +1,6 @@
 import {
     generateUploadButton,
-    generateUploadDropzone,
+   generateUploadDropzone,
 } from "@uploadthing/react";
 
 export const UploadButton = generateUploadButton();
