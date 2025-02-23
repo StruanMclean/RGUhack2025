@@ -19,3 +19,28 @@
 .list{
   list-style: none;
 }
+
+
+@media screen and (max-width: 768px) {
+  .page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .mantine-grid{
+    flex-direction: column;
+  }
+  .mantine-grid-col{
+    width: 100% !important;
+  }
+  .form{
+    width: 100%;
+    max-width: 100vh;
+  }
+  .map-container{
+    width: 100%;
+    max-width: 100vh;
+  }
+  
+}
+

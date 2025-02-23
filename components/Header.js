@@ -19,8 +19,8 @@ const styles = {
     },
     logo: {
         position: 'absolute',
-        top: '10px',
-        left: '10px',
+        top: '0.5%',
+        left: '0.5%',
         height: '150px', // Adjust size as needed
     }
 };

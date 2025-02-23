@@ -1,7 +1,7 @@
 .wrapper {
     display: flex;
     justify-content: center;
-    position: relative;
+    position: fixed;
     margin-bottom: 30px;
     height: 100vh;
     width: 100vw;
@@ -17,15 +17,20 @@
 }
 .Uploading {
     background-color: #f0f8ff; /* Soft blue background */
-    max-width: 90%; /* Ensures it looks good on smaller screens */
-    width: 500px; /* Standard width */
+    max-width: 90vh; /* Ensures it looks good on smaller screens */
+    min-width: 50vh; /* Standard width */
+
+
+    
     padding: 20px;
     border-radius: 12px; /* Slightly more rounded corners */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
     margin-top: 20px;
+    margin-bottom: 20px;
+
     /* Centering the div */
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -95%);
 }

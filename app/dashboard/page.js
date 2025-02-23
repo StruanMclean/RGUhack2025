@@ -96,7 +96,7 @@ export default function Dashboard() {
       </Modal>
 
       <Grid>
-        <Grid.Col span={6}>
+      <Grid.Col span={{ base: 12, md: 6 }}>
           <Paper className={classes.form} radius={0} p={30}>
             <div style={{ overflowY: "auto", maxHeight: "100vh", padding: "1rem" }}>
               <Flex justify="space-evenly" wrap="wrap" maw="50vw">
@@ -161,14 +161,14 @@ export default function Dashboard() {
               </Flex>
             </div>
 
-            <Navbar />
+           
           </Paper>
         </Grid.Col>
-        <Grid.Col span={4}>
-          <Map
+        <Grid.Col span={{ base: 12, md: 6 }}>
+        <Map
             mapboxAccessToken={mapboxToken}
             mapStyle="mapbox://styles/mapbox/streets-v12"
-            style={{width: "50vw", height: "100vh", borderTopLeftRadius: 25, borderBottomLeftRadius: 25}}
+            style={{width: "150vw", minHeight: "70vh",Height:"80vh", borderTopLeftRadius: 25, borderBottomLeftRadius: 25}}
             initialViewState={{ latitude: 57.1499, longitude: -2.0938, zoom: 10 }}
             maxZoom={20}
             minZoom={3}
@@ -184,6 +184,8 @@ export default function Dashboard() {
           </Map>
         </Grid.Col>
       </Grid>
+
+      <Navbar />
     </div>
   );
 }
