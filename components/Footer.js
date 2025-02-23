@@ -43,7 +43,7 @@ const Footer = () => {
                             <h2>Privacy Policy</h2>
                         </div>
                         <div style={styles.CopyRight}>
-                            <h2>© CRTL + Z 2025</h2>
+                            <h2>© CRTL + Z (2025)</h2>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ const Footer = () => {
 
 const styles = {
     container: {
-        minHeight: '100vh',
+        minHeight: '1vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-end',
