@@ -4,7 +4,7 @@ import { Card, Group, Text, Badge, Image } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Modal, Button, Flex } from '@mantine/core';
 
-const BirdCard = ({ image, title, fact, date, callback }) => {
+const BirdCard = ({ image, title, fact, date, long, lat, callback }) => {
   const [isHidden, setIsHidden] = useState(true);
 
   return (
@@ -20,7 +20,10 @@ const BirdCard = ({ image, title, fact, date, callback }) => {
       </Card.Section>
 
       <Group justify="space-between" mt="md" mb="xs">
-        <Text fw={500}>{title}</Text>
+        <div>
+         <Text fw={500}>{title}</Text>
+         <Text fw={500} size='md'>Location: {long}, {lat}</Text>
+        </div>
         <Badge color="pink">Data Bellow</Badge>
       </Group>
 
