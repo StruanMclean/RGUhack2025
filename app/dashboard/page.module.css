@@ -11,3 +11,7 @@
 .subtitle{
   margin-top: 100px;
 }
+
+.wrapper {
+  max-height: 100vh;
+}

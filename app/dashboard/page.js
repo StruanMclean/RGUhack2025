@@ -82,26 +82,22 @@ export default function Dashboard() {
       <Grid>
         <Grid.Col span={6}>
           <Paper className={classes.form} radius={0} p={30}>
-            <Center>
-              <Title>
-                Welcome Back
-              </Title>              
-            </Center>
 
-            <Center>
-            <h2 className = {classes.subtitle}>Recents</h2>
-            </Center>
-
-            <Center>
-              <Flex>
+            <div style={{ overflowY: "auto", maxHeight: "100vh", padding: "1rem" }}>
+              <Flex justify="space-evenly" wrap="wrap" maw="50vw">
                 {items.map((item) => (
                   <li key={item.id} className="border-t-2 p-2">
-                    <BirdCard image={item.url} title={item.fileName} fact={"Fact 3"} date={"22/02/2025"}></BirdCard>
-                    <Button onClick={() => handleDelete(item.id)}>Delete</Button>
+                    <BirdCard
+                      image={item.url}
+                      title={item.fileName}
+                      fact={"Fact 3"}
+                      date={"22/02/2025"}
+                      callback={() => handleDelete(item.id)}
+                    />
                   </li>
                 ))}
               </Flex>
-            </Center>
+            </div>
 
             <Navbar />
           </Paper>
@@ -126,7 +122,6 @@ export default function Dashboard() {
           </Map>
         </Grid.Col>
       </Grid>
-      <Footer/>
     </div>
   );
 }

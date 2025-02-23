@@ -37,12 +37,16 @@ export default function Upload() {
               latitude: position.coords.latitude,
               longitude: position.coords.longitude
             });
-            console.log("Upload successful:", docRef);
+            toast.success("Upload successful:", {
+              position: "top-center",
+            });
             setLoading(false)
             window.location.replace("/dashboard")
           } catch (error) {
             setLoading(false)
-            console.error("Error uploading data:", error);
+            toast.error("Error uploading data:", {
+              position: "top-center",
+            });
             alert("Error during upload");
           }
         },
@@ -64,64 +68,24 @@ export default function Upload() {
 
   return (
     <>
-    <Header/>
       <Toaster />
-      <div className={classes.wrapper}>
-        <Dropzone
-          openRef={openRef}
-          onDrop={() => {}}
-          className={classes.dropzone}
-          radius="md"
-          accept={[MIME_TYPES.pdf]}
-          maxSize={30 * 1024 ** 2}
-        >
-          <Center mt={100}>
-            <Title>
-              Upload Bird
-            </Title>              
-          </Center>
 
-          <div style={{
-            marginTop: "3cm",
-            width: 500,
-            padding: 50,
-            borderRadius: 20,
-            backgroundColor: 'rgba(255, 255, 255, 0.2)',
-            boxShadow: "0 4px 30px rgba(0, 0, 0, 0.1)",
-            backdropFilter: "blur(5px)",
-            webkitBackdropFilter: "blur(5px)",
-            marginLeft: "auto",
-            marginRight: "auto",
-            marginTop: 50,
-          }}>
-            <Group justify="center">
-              <Dropzone.Accept>
-                <IconDownload size={50} color={theme.colors.blue[6]} stroke={1.5} />
-              </Dropzone.Accept>
-              <Dropzone.Reject>
-                <IconX size={50} color={theme.colors.red[6]} stroke={1.5} />
-              </Dropzone.Reject>
-              <Dropzone.Idle>
-                <IconCloudUpload size={50} stroke={1.5} />
-              </Dropzone.Idle>
-            </Group>
-
-            <Text ta="center" fw={700} fz="lg" mt="xl">
-              <Dropzone.Accept>Drop files here</Dropzone.Accept>
-              <Dropzone.Reject>Pdf file less than 30mb</Dropzone.Reject>
-              <Dropzone.Idle>Upload resume</Dropzone.Idle>
-            </Text>
-            <Text ta="center" fz="sm" mt="xs">
-              Drag&apos;n&apos;drop files here to upload. We can accept only <i>.pdf</i> files that
-              are less than 30mb in size.
-            </Text>
-
-            <Button className={classes.control} size="md" radius="xl" w={400} mt={50} onClick={() => openRef.current?.()}>
-              Select files
-            </Button>
-          </div>
-        </Dropzone>
-      </div>
+      <Center>
+        <UploadButton
+          endpoint="imageUploader"
+          onClientUploadComplete={(res) => {
+            setFileURL(res[0].ufsUrl)
+            toast.success("Upload Completed", {
+              position: "top-center",
+            });
+          }}
+          onUploadError={(error) => {
+            toast.error("Error with your upload", {
+              position: "top-center",
+            });
+          }}
+        />
+      </Center>
 
       <Container maw={500}>
         <TextInput 

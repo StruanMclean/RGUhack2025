@@ -28,7 +28,6 @@ export default function Home() {
   
   return (
     <div className={classes.wrapper}>
-      <Header/>
       <Toaster />
       <Paper className={classes.form} radius={0} p={30}>
         <Paper className={classes.formcontent}>

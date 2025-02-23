@@ -5,7 +5,7 @@ import useAuth from '../../auth/auth';
 import { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
-import Header from '../../components/header';
+import Header from '../../components/Header';
 
 let placeholder = ""
 
@@ -15,9 +15,7 @@ export default function Settings() {
   const [password, setPassword] = useState("")
 
   return (
-   
     <Container size="sm" className={classes.wrapper}>
-      <Header/>
       <Title ta="center" className={classes.title} style={{marginTop: 100}}>
         Settings
       </Title>
