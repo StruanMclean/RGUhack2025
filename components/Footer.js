@@ -26,15 +26,6 @@ const Footer = () => {
                             </p>
                         </div>
 
-                        <div style={styles.Sitemap}>
-                            <h2>Sitemap</h2>
-                            <ul style={styles.navList}>
-                                <li><a href="/gallery" style={styles.navLink}>Gallery</a></li>
-                                <li><a href="/dashboard" style={styles.navLink}>Dashboard</a></li>
-                                <li><a href="/upload" style={styles.navLink}>Upload</a></li>
-                                <li><a href="/settings" style={styles.navLink}>Settings</a></li>
-                            </ul>
-                        </div>
                     </div>
 
                     {/* Bottom Section: Privacy Policy & Copyright */}
@@ -107,10 +98,6 @@ const styles = {
         lineHeight: '1.6',     // Add some space between lines of text for readability
         fontSize: '16px',
         paddingRight: '10px',  // Add some padding to the right
-    },
-    Sitemap: {
-        width: 'fit-content',
-        textAlign: 'left',
     },
     navList: {
         listStyleType: 'none',
