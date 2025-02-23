@@ -9,6 +9,8 @@
   border-color: #e8e8e8;
   border-width: 1px;
   border-style: solid;
+  align-items: center;
+  justify-items: center;
   margin: 10px;
   /* Ensure it's visible when active */
   opacity: 1;
@@ -50,7 +52,7 @@
 }
 
 .cardtitle {
-  margin-top: 10px;
+  margin-top: 25px;
   text-align: center;
 }
 
@@ -60,4 +62,14 @@
 
 .carddate {
   text-align: center;
+}
+
+.button{
+  border-radius: 25px;
+  border-width: 0px;
+  background-color: rgb(35, 140, 231);
+  color: rgb(255, 255, 255);
+  width: 200px;
+  height: 40px;
+  margin-top: 25px;
 }
