@@ -12,8 +12,8 @@ const Footer = () => {
                             <h2>Stay Connected with us</h2>
                             <ul style={styles.LinkedinProfiles}>
                                 <li style={styles.profile}><a href="https://www.linkedin.com/in/joshuanewtoncs/" style={styles.navLink}>JN</a></li>
-                                <li style={styles.profile}><a href="https://www.linkedin.com/in/joshuanewtoncs/" style={styles.navLink}>SM</a></li>
-                                <li style={styles.profile}><a href="https://www.linkedin.com/in/joshuanewtoncs/" style={styles.navLink}>JW</a></li>
+                                <li style={styles.profile}><a href="https://www.linkedin.com/in/struan-mclean-821aa427b/" style={styles.navLink}>SM</a></li>
+                                <li style={styles.profile}><a href="https://www.linkedin.com/in/jayden-james-wilson/" style={styles.navLink}>JW</a></li>
                                 <li style={styles.profile}><a href="https://www.linkedin.com/in/joshuanewtoncs/" style={styles.navLink}>DT</a></li>
                             </ul>
                         </div>
