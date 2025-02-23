@@ -121,12 +121,12 @@ export default function Dashboard() {
                             lat={item.latitude}
                             callback={() => handleDelete(item.id)}
                             open={() => {
-                              toast.loading("Predicting Image", {
-                                position: "top-center",
-                              });
+                              // toast.loading("Predicting Image", {
+                              //   position: "top-center",
+                              // });
 
-                              open()
-                              predict()
+                              // open()
+                              predict(item.url)
                             }}
                           />
                         </li>    
