@@ -22,16 +22,6 @@ export default function Settings() {
         </Title>
         
         <Accordion variant="separated">
-          <Accordion.Item className={classes.item} value="reset-password">
-            <Accordion.Control><h4>User Details</h4></Accordion.Control>
-            <Accordion.Panel>
-              <Stack className={classes.userdetails}>
-                <p>Email: test@gmail.com</p>
-                <p>Password: 1234</p>
-              </Stack>
-            </Accordion.Panel>
-          </Accordion.Item>
-
           <Accordion.Item className={classes.item} value="payment">
             <Accordion.Control><h4>The Danger Zone</h4></Accordion.Control>
             <Accordion.Panel>
