@@ -14,7 +14,10 @@
     "@mantine/dropzone": "^7.17.0",
     "@mantine/hooks": "^7.17.0",
     "@tabler/icons-react": "^3.30.0",
+    "@uploadthing/react": "^7.3.0",
+    "cors": "^2.8.5",
     "firebase": "^11.3.1",
+    "firebase-admin": "^13.1.0",
     "geojson": "^0.5.0",
     "mapbox-gl": "^3.10.0",
     "maplibre-gl": "^5.1.1",
@@ -23,7 +26,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hot-toast": "^2.5.2",
-    "react-map-gl": "^8.0.1"
+    "react-map-gl": "^8.0.1",
+    "uploadthing": "^7.5.2"
   },
   "devDependencies": {
     "@types/react": "19.0.10",

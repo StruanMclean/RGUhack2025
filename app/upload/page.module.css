@@ -1,6 +1,5 @@
 .wrapper {
     display: flex;
-    align-items: center;
     justify-content: center;
     position: relative;
     margin-bottom: 30px;
@@ -10,7 +9,6 @@
   
 .dropzone {
     border-width: 1px;
-    padding-bottom: 50px;
     width: 500px;
 }
   

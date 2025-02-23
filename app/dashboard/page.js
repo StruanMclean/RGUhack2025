@@ -94,7 +94,7 @@ export default function Dashboard() {
               <Flex>
                 {items.map((item) => (
                   <li key={item.id} className="border-t-2 p-2">
-                    <BirdCard image={"wood-flight-bird-326900.jpg"} title={item.fileName} fact={"Fact 3"} date={"22/02/2025"}></BirdCard>
+                    <BirdCard image={item.url} title={item.fileName} fact={"Fact 3"} date={"22/02/2025"}></BirdCard>
                     <Button onClick={() => handleDelete(item.id)}>Delete</Button>
                   </li>
                 ))}

@@ -44,17 +44,15 @@ const styles = {
     },
     navList: {
         listStyle: 'none',
-        padding: '0',
         display: 'flex',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         alignItems: 'center', // Aligns all items (including the circle) vertically
+        width: 500
     },
     navItem: {
-        margin: '0 25px',
         textAlign: 'center',
     },
     navItemCircle: {
-        margin: '0 15px',
         backgroundColor: 'white',
         borderRadius: '50%',
         width: '70px',
@@ -67,6 +65,7 @@ const styles = {
         color: 'white',
         textDecoration: 'none',
         fontSize: '19px',
+        marginLeft: -10,
     },
     navLink: {
         color: 'black',
@@ -85,7 +84,7 @@ const styles = {
         top: '-100%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        padding: '10px',
+        padding: '25px',
         borderRadius: '10px',
         height: '50px'
     }
