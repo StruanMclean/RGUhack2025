@@ -81,7 +81,7 @@ export default function Dashboard() {
 
   return (
     <div  className={classes.wrapper}>
-      <Header/>
+      <header/>
       <Grid>
         <Grid.Col span={6}>
           <Paper className={classes.form} radius={0} p={30}>

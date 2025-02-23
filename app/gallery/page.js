@@ -22,7 +22,7 @@ import header from '../../components/header';
     return (
       
       <div  className={classes.wrapper}>
-        <Header/>
+        <header/>
         <Paper className={classes.form} radius={0} p={30}>
           <h1 order={2} className={classes.title} ta="center" mt="md" mb={50}>
             Gallery

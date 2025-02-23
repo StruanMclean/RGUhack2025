@@ -60,7 +60,7 @@ export default function Upload() {
 
   return (
     <>
-    <Header/>
+    <header/>
       <Toaster />
       <div className={classes.wrapper}>
         <Dropzone
