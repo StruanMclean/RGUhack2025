@@ -11,6 +11,7 @@
   border-style: solid;
   align-items: center;
   justify-items: center;
+  border-radius: 10px;
   margin: 10px;
   /* Ensure it's visible when active */
   opacity: 1;
@@ -48,7 +49,7 @@
   width: 700px;
   height: 400px;
   object-fit: cover;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 .cardtitle {
@@ -62,6 +63,15 @@
 
 .carddate {
   text-align: center;
+}
+
+.cardlocation {
+  justify-content: center;
+  align-self: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  gap: 20px;
 }
 
 .button{
