@@ -14,9 +14,11 @@ const Navbar = () => {
                             <li style={styles.navItem}>
                                 <a href="/dashboard" style={styles.navLink}>Dashboard</a>
                             </li>
-                            <li style={styles.navItemCircle}>
-                                <a href="/upload" style={styles.navLink}>+</a>
-                            </li>
+                            <a href="/upload">
+                                <li style={styles.navItemCircle}>
+                                    <a style={styles.navLink}>+</a>
+                                </li>                                
+                            </a>
                             <li style={styles.navItem}>
                                 <a href="/settings" style={styles.navLink}>Settings</a>
                             </li>
