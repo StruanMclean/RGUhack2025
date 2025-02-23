@@ -7,6 +7,7 @@ import { Dropzone, MIME_TYPES } from '@mantine/dropzone';
 import classes from './page.module.css';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import Header from '../../components/Header';
 
 export default function Upload() {
   const theme = useMantineTheme();
@@ -25,6 +26,7 @@ export default function Upload() {
           maxSize={30 * 1024 ** 2}
         >
           <div style={{ pointerEvents: 'none' }}>
+            <Header/>
             <Group justify="center">
               <Dropzone.Accept>
                 <IconDownload size={50} color={theme.colors.blue[6]} stroke={1.5} />
