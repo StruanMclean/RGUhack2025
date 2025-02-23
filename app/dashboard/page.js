@@ -4,6 +4,8 @@ import {
   Paper,
   Flex,
   Center,
+  Title,
+  Button,
   } from '@mantine/core';
   import classes from './page.module.css';
 import BirdCard from '../../components/BirdCard';
@@ -11,20 +13,10 @@ import Navbar from '../../components/Navbar';
 
 import Map, {Source, Layer} from 'react-map-gl/mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
+import { auth, firestore } from '../../auth/firebase';
+import { useEffect, useState } from 'react';
 
-const geojson = {
-  type: 'FeatureCollection',
-  features: [
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [-2.29895, 57.1523021]
-      },
-      properties: {title: '26 westdyke avenue'}
-    }
-  ]
-};
+import { collection, getDocs, doc, deleteDoc } from "firebase/firestore"; 
 
 const layerStyle = {
   id: 'point',
@@ -37,15 +29,56 @@ const layerStyle = {
   
 export default function Dashboard() {
   const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
+  const [items, setItems] = useState([]);
+  const [geojson, setgeojson] = useState([]);
+  const [update, setUpdate] = useState(true);
+
+  const handleDelete = async (id) => {
+    const itemRef = doc(firestore, "Uploads", id)
+    try {
+      await deleteDoc(itemRef)
+      setUpdate(update ? false : true)
+    } catch (error) {
+      console.error("Error deleting document: ", error)
+      alert("Error deleting item")
+    }
+  }
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(firestore, "Uploads"));
+        setItems(querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+        setgeojson(
+          querySnapshot.docs.map((doc) => ({
+            type: 'Feature',
+            geometry: {
+              type: 'Point',
+              coordinates: [doc.data().longitude, doc.data().latitude]
+            },
+            properties: {title: 'data'}
+          }))
+        );
+  
+        console.log(querySnapshot);
+      } catch (error) {
+        console.error("Error fetching items:", error);
+      }
+    };
+  
+    fetchItems();
+  }, [update]);  
 
   return (
     <div  className={classes.wrapper}>
       <Grid>
         <Grid.Col span={6}>
           <Paper className={classes.form} radius={0} p={30}>
-            <h1 order={2} className={classes.title} ta="center" mt="md" mb={50}>
-              Dashboard
-            </h1>
+            <Center>
+              <Title>
+                Welcome Back
+              </Title>              
+            </Center>
 
             <Center>
             <h2 className = {classes.subtitle}>Recents</h2>
@@ -53,9 +86,12 @@ export default function Dashboard() {
 
             <Center>
               <Flex>
-                <BirdCard image={"wood-flight-bird-326900.jpg"} title={"Bird 1"} fact={"Fact 1"} date={"22/02/2025"}></BirdCard>
-                <BirdCard image={"wood-flight-bird-326900.jpg"} title={"Bird 2"} fact={"Fact 2"} date={"22/02/2025"}></BirdCard>
-                <BirdCard image={"wood-flight-bird-326900.jpg"} title={"Bird 3"} fact={"Fact 3"} date={"22/02/2025"}></BirdCard>
+                {items.map((item) => (
+                  <li key={item.id} className="border-t-2 p-2">
+                    <BirdCard image={"wood-flight-bird-326900.jpg"} title={item.fileName} fact={"Fact 3"} date={"22/02/2025"}></BirdCard>
+                    <Button onClick={() => handleDelete(item.id)}>Delete</Button>
+                  </li>
+                ))}
               </Flex>
             </Center>
 
@@ -71,7 +107,12 @@ export default function Dashboard() {
             maxZoom={20}
             minZoom={3}
           >
-            <Source id="my-data" type="geojson" data={geojson}>
+            <Source id="my-data" type="geojson" data={
+              {
+                type: 'FeatureCollection',
+                features: geojson
+              }
+            }>
               <Layer {...layerStyle} />
             </Source>
           </Map>
