@@ -37,7 +37,7 @@ export default function Dashboard() {
     const itemRef = doc(firestore, userID, id)
     try {
       await deleteDoc(itemRef)
-      fetchItems()
+      fetchItems(userID)
     } catch (error) {
       console.error("Error deleting document: ", error)
       alert("Error deleting item")
