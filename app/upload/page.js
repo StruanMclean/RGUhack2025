@@ -19,14 +19,13 @@ export default function Upload() {
   const theme = useMantineTheme();
   const openRef = useRef(null);
 
-  const [fileURL, setFileURL] = useState("")
+  const [fileURL, setFileURL] = useState(null)
   const [fileName, setFileName] = useState("")
 
   const [loading, setLoading] = useState(false)
 
   const submit = () => {
-
-    if (fileURL != "") {
+    if (fileURL !== null) {
       if ("geolocation" in navigator) {
         setLoading(true)
         navigator.geolocation.getCurrentPosition(
