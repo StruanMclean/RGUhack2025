@@ -15,25 +15,7 @@ import Map, {Source, Layer} from 'react-map-gl/mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { auth, firestore } from '../../auth/firebase';
 import { useEffect, useState } from 'react';
-
-
-import { collection, getDocs, doc, deleteDoc } from "firebase/firestore"; 
-
-const geojson = {
-  type: 'FeatureCollection',
-  features: [
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [-2.29895, 57.1523021]
-        
-      },
-      properties: {title: '26 westdyke avenue'}
-    }
-  ]
-};
-
+import { getDocs, collection, doc, deleteDoc } from "firebase/firestore"
 
 const layerStyle = {
   id: 'point',
@@ -48,43 +30,51 @@ export default function Dashboard() {
   const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
   const [items, setItems] = useState([]);
   const [geojson, setgeojson] = useState([]);
-  const [update, setUpdate] = useState(true);
+  const [userID, setUserID] = useState(null)
 
   const handleDelete = async (id) => {
-    const itemRef = doc(firestore, "Uploads", id)
+    alert(id)
+    const itemRef = doc(firestore, userID, id)
     try {
       await deleteDoc(itemRef)
-      setUpdate(update ? false : true)
+      fetchItems()
     } catch (error) {
       console.error("Error deleting document: ", error)
       alert("Error deleting item")
     }
   }
 
+  const fetchItems = async (uid) => {
+    try {
+      const querySnapshot = await getDocs(collection(firestore, uid));
+      setItems(querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+      setgeojson(
+        querySnapshot.docs.map((doc) => ({
+          type: 'Feature',
+          geometry: {
+            type: 'Point',
+            coordinates: [doc.data().longitude, doc.data().latitude]
+          },
+          properties: {title: 'data'}
+        }))
+      );
+
+      console.log(querySnapshot);
+    } catch (error) {
+      console.error("Error fetching items:", error);
+    }
+  };
+
   useEffect(() => {
-    const fetchItems = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(firestore, "Uploads"));
-        setItems(querySnapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        setgeojson(
-          querySnapshot.docs.map((doc) => ({
-            type: 'Feature',
-            geometry: {
-              type: 'Point',
-              coordinates: [doc.data().longitude, doc.data().latitude]
-            },
-            properties: {title: 'data'}
-          }))
-        );
-  
-        console.log(querySnapshot);
-      } catch (error) {
-        console.error("Error fetching items:", error);
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserID(user.uid)
+        fetchItems(user.uid)
+      } else {
+        setUserID(null);
       }
-    };
-  
-    fetchItems();
-  }, [update]);  
+    })
+  }, []);
 
   return (
     <div  className={classes.wrapper}>
