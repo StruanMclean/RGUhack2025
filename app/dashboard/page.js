@@ -21,6 +21,7 @@ import { useEffect, useState } from 'react';
 import { getDocs, collection, doc, deleteDoc } from "firebase/firestore"
 import { useDisclosure } from '@mantine/hooks';
 import toast, { Toaster } from 'react-hot-toast';
+import predict from '../../lib/predict';
 
 const layerStyle = {
   id: 'point',
@@ -125,6 +126,7 @@ export default function Dashboard() {
                               });
 
                               open()
+                              predict()
                             }}
                           />
                         </li>    
