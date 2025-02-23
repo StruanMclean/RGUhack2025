@@ -106,6 +106,8 @@ export default function Dashboard() {
                             title={item.fileName}
                             fact={"Fact 3"}
                             date={"22/02/2025"}
+                            long={item.longitude}
+                            lat={item.latitude}
                             callback={() => handleDelete(item.id)}
                           />
                         </li>    
