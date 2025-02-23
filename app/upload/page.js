@@ -20,12 +20,12 @@ export default function Upload() {
   const openRef = useRef(null);
 
   const [fileURL, setFileURL] = useState(null)
-  const [fileName, setFileName] = useState("")
+  const [fileName, setFileName] = useState(null)
 
   const [loading, setLoading] = useState(false)
 
   const submit = () => {
-    if (fileURL !== null) {
+    if (fileURL !== null && fileName !== null) {
       if ("geolocation" in navigator) {
         setLoading(true)
         navigator.geolocation.getCurrentPosition(
@@ -64,7 +64,7 @@ export default function Upload() {
         });
       }
     } else {
-      toast.error("Press upload to upload your image", {
+      toast.error("Press upload to upload your image or add file name", {
         position: "top-center",
       });
     }
