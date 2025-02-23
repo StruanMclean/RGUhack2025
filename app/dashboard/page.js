@@ -16,9 +16,9 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { auth, firestore } from '../../auth/firebase';
 import { useEffect, useState } from 'react';
 
-<<<<<<< HEAD
+
 import { collection, getDocs, doc, deleteDoc } from "firebase/firestore"; 
-=======
+
 const geojson = {
   type: 'FeatureCollection',
   features: [
@@ -33,7 +33,7 @@ const geojson = {
     }
   ]
 };
->>>>>>> 6c52d4a95db5d00cd5d96d6e8e9698f5e89c2055
+
 
 const layerStyle = {
   id: 'point',
