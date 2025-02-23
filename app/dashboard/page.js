@@ -105,16 +105,26 @@ export default function Dashboard() {
   return (
     <div  className={classes.wrapper}>
       <Toaster />
-      <Modal opened={opened} onClose={close} title="Prediction">
+      <Modal opened={opened} onClose={close} title="Prediction" w="90vw" h="90vh">
         <Title>{prediction.class}</Title>
-        {
-          images.map((item) => (
-          <Image
-            key={item.id}
-            src={item.src.landscape}
-          />
-          ))
-        }
+
+        <Flex>
+            <Image
+              key={1}
+              src={images.length > 0 ? images[0].src.landscape : ""}
+            />
+
+            <Flex>
+            {
+              images.map((item) => (
+              <Image
+                key={item.id}
+                src={item.src.landscape}
+              />
+              ))
+            }
+            </Flex>
+        </Flex>
       </Modal>
 
       <Grid>
