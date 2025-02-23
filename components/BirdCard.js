@@ -7,7 +7,7 @@ import { Modal, Button, Flex } from '@mantine/core';
 const BirdCard = ({ image, title, fact, date, long, lat, callback, open }) => {
 
   return (
-    <Card shadow="sm" padding="lg" radius="md" withBorder maw={350}>
+    <Card shadow="sm" padding="lg" radius="md" withBorder maw={350} mb={15}>
       <Card.Section>
         <Image
           src={image}
